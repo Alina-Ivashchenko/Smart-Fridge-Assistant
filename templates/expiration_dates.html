@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expiration Dates</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="icon" href="{{ url_for('static', filename='image.png') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Items Expiring Soon</h1>
+
+        {% if expiring_items %}
+            <table class="expiration-table">
+                <thead>
+                    <tr>
+                        <th class="table-header">Item Name</th>
+                        <th class="table-header">Quantity</th>
+                        <th class="table-header">Expiration Date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for item in expiring_items %}
+                        <tr class="warning-item">
+                            <td class="table-data">{{ item[1] }}</td> 
+                            <td class="table-data">{{ item[2] }}</td> 
+                            <td class="table-data">{{ item[3] }}</td> 
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% else %}
+            <p class="no-items-message">No items are expiring soon.</p>
+        {% endif %}
+
+        <form action="/" method="get">
+            <button type="submit" class="back-button back">Back to Main Menu</button>
+        </form>
+    </div>
+</body>
+</html>

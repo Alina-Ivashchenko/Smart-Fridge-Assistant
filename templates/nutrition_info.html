@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nutrition Information</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="icon" href="{{ url_for('static', filename='image.png') }}">
+
+
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Nutrition Information</h1>
+        </header>
+        <form action="{{ url_for('get_nutrition_info') }}" method="post" class="fetch-form">
+            <button type="submit" class="btn" id="fetch-btn">Get Nutrition Information</button>
+        </form>
+
+        {% if error %}
+        <p class="error">{{ error }}</p>
+        {% endif %}
+
+        {% if nutrition_info %}
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Calories</th>
+                    <th>Protein</th>
+                    <th>Carbs</th>
+                    <th>Fat</th>
+                    <th>Sugars</th>
+                    <th>Fiber</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in nutrition_info %}
+                <tr>
+                    <td style="font-weight: bold">{{ item.name }}</td>
+                    <td>{{ item.calories }}</td>
+                    <td>{{ item.protein }}</td>
+                    <td>{{ item.carbs }}</td>
+                    <td>{{ item.fat }}</td>
+                    <td>{{ item.sugars }}</td>
+                    <td>{{ item.fiber }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% else %}
+        <p class="no-data">No nutrition data available. Please fetch the information.</p>
+        {% endif %}
+
+        <form action="/" method="get">
+            <button type="submit" class="back-button back">Back to Main Menu</button>
+        </form>
+
+    </div>
+
+
+</body>
+</html>

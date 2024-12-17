@@ -1,0 +1,28 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bulk Insert Ingredients</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="icon" href="{{ url_for('static', filename='image.png') }}">
+
+</head>
+<body>
+    <div class="container">
+        <h1>Bulk Insert Ingredients</h1>
+
+        <form action="{{ url_for('bulk_add') }}" method="POST">
+            <label for="bulk_data">Enter ingredients, quantities, and expiration dates:</label>
+            <textarea id="bulk_data" name="bulk_data" placeholder="Example:\nBanana, 5, 2024-12-31\nApple, 3, 2024-12-15\nOrange, 8, 2024-12-25"></textarea>
+            <br>
+            <input type="submit" value="Insert Ingredients">
+        </form>
+
+        <form action="/" method="get">
+            <button type="submit" class="back-button back">Back to Main Menu</button>
+        </form>
+    </div>
+</body>
+</html>

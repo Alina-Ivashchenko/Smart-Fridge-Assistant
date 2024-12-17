@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title class="title">Generate Recipes</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}?v=1">
+    <link rel="icon" href="{{ url_for('static', filename='image.png') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Generate Recipes</h1>
+        </header>
+
+        <section class="ingredients-section">
+            <h2 style="margin-bottom: 20px">Available Ingredients</h2>
+            <ul class="ingredients-list">
+                {% for item in items %}
+                <li>{{ item[1] }} <span class="quantity">({{ item[2] }})</span></li>
+                {% endfor %}
+            </ul>
+        </section>
+        <hr>
+
+
+        <section class="recipes-section">
+            <h2 style="margin-top: 20px">Recipes</h2>
+            <form action="/get_recipes" method="POST">
+                <button class="generate-button" type="submit">Generate Recipes</button>
+            </form>
+
+
+            {% if error %}
+            <p class="error">{{ error }}</p>
+            {% endif %}
+            <div id="recipes">
+            {% if recipes %}
+            <div class="recipes-list">
+                {% for recipe in recipes %}
+                <div class="recipe-item">
+                    <h3 class="recipe-name">{{ recipe.name }}</h3>
+                    <p class="recipe-ingredients"><strong>Ingredients:</strong> {{ recipe.ingredients }}</p>
+                    <p class="recipe-instructions">
+                        <strong>Instructions:</strong>
+                        {% for step in recipe.instructions.split('\n') %}
+                            <span class="instruction-step">{{ step }}</span><br>
+                        {% endfor %}
+                    </p>
+                </div>
+                {% endfor %}
+            </div>
+            {% else %}
+            <p class="no-recipes">No recipes generated yet. Click the button to get recipes!</p>
+            {% endif %}
+        </div>
+        </section>
+        <form action="/" method="get">
+            <button type="submit" class="back-button back">Back to Main Menu</button>
+        </form>
+    </div>
+</body>
+</html>
+
+
+
+
+
+
+

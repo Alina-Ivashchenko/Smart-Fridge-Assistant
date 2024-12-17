@@ -1,0 +1,369 @@
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+/* Containers */
+.container {
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+    max-width: 800px;
+    width: 100%;
+    padding: 30px;
+    text-align: center;
+}
+
+header h1, 
+h1 {
+    text-align: center;
+    color: #555;
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+.container.large {
+    max-width: 80%;
+    padding: 40px;
+}
+
+.container.shadow {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Forms */
+form {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+form label {
+    font-size: 16px;
+    color: #666;
+    display: block;
+    margin-bottom: 8px;
+    text-align: left;
+}
+
+form input, 
+form textarea {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    background-color: #f9f9f9;
+    margin-bottom: 20px;
+}
+
+textarea {
+    height: 150px;
+    resize: none;
+}
+
+textarea::placeholder {
+    color: #aaa;
+}
+
+form button, 
+input[type="submit"] {
+    background-color: #5a67d8;
+    color: #fff;
+    font-size: 16px;
+    border: none;
+    border-radius: 6px;
+    padding: 12px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+form button:hover, 
+input[type="submit"]:hover {
+    background-color: #434190;
+}
+
+.back-button, 
+.delete-btn {
+    display: inline-block;
+    padding: 10px 15px;
+    background-color: #6a6c6a;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    text-align: center;
+    cursor: pointer;
+    font-size: 1em;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+.back-button:hover, 
+.delete-btn:hover {
+    background-color: #29292a;
+}
+
+/* Tables */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+table, th, td {
+    border: 1px solid #ddd;
+}
+
+th, td {
+    padding: 12px;
+    text-align: center;
+}
+
+th {
+    background-color: #f4f4f4;
+}
+
+/* Cards */
+.recipe-card, 
+.recipe-card-small {
+    background: #f0f0f0;
+    border-radius: 8px;
+    padding: 20px;
+    width: 300px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
+}
+
+.recipe-card:hover {
+    transform: translateY(-5px);
+}
+
+.recipe-card h3, 
+.recipe-card h4 {
+    font-size: 1.2em;
+    color: #555;
+    margin-bottom: 10px;
+}
+
+.recipe-card p {
+    font-size: 1em;
+    color: #333;
+}
+
+.recipe-card-small {
+    padding: 15px;
+    width: auto;
+}
+
+.no-recipes {
+    text-align: center;
+    color: #888;
+}
+
+/* Lists */
+.ingredients-list, 
+.recipes-container {
+    list-style: none;
+    padding: 0;
+}
+
+.ingredients-list li, 
+.recipes-container .recipe-card {
+    background: #f0f0f0;
+    margin: 5px 0;
+    padding: 10px;
+    border-radius: 4px;
+}
+
+/* Links */
+a {
+    display: inline-block;
+    margin-top: 20px;
+    font-size: 16px;
+    text-decoration: none;
+    color: #5a67d8;
+    transition: color 0.3s;
+}
+
+a:hover {
+    color: #434190;
+}
+
+/* Error Messages */
+.error {
+    color: red;
+    text-align: center;
+    font-weight: bold;
+}
+
+/* Buttons */
+.generate-button, 
+form button, 
+.back-button, 
+input[type="submit"] {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #584eec;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.generate-button:hover, 
+form button:hover, 
+.back-button:hover, 
+input[type="submit"]:hover {
+    background-color: #362f94;
+    color: white;
+}
+
+.delete-btn {
+    display: inline-block;
+    padding: 10px 15px;
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+    font-size: 1em;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.delete-btn:hover {
+    background-color: #c0392b;
+}
+
+.delete-btn:active {
+    background-color: #b03329;
+}
+
+/* Recipes Container */
+.recipes-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+/* Form Button Styles (Shared with back-button) */
+form button {
+    padding: 10px 20px;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1em;
+}
+
+ /* Styling for recipe list */
+ .recipes-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.recipe-item {
+    background-color: white;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.recipe-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.recipe-name {
+    font-size: 1.4em;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.recipe-ingredients, .recipe-instructions {
+    font-size: 1em;
+    color: #666;
+    margin-bottom: 10px;
+}
+
+ /* Styling for individual instruction steps */
+.instruction-step {
+        font-size: 1em;
+        line-height: 1.6;
+        margin-bottom: 5px;
+        color: #555;
+}
+
+    /* Flex container for the buttons */
+.button-container {
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    gap: 15px; /* Space between buttons */
+    margin-bottom: 20px;
+    flex-wrap: wrap; /* Makes buttons stack if screen size is too small */
+}
+
+.back {
+    background-color: #5b5b5b;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.back:hover {
+    background-color: #434343;
+}
+
+
+
+
+
+
+        /* Table styles */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: center;
+            border: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #362f94;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        .nutrition-item {
+            margin-bottom: 30px;
+        }
